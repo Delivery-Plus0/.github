@@ -107,6 +107,10 @@ See the [backend README](https://github.com/Delivery-Plus0/delivery-plus#readme)
 
 Work happens on feature branches → pull request → CI → review → merge into `dev`. Start with the backend's [CONTRIBUTING.md](https://github.com/Delivery-Plus0/delivery-plus/blob/dev/CONTRIBUTING.md).
 
+<!-- CONTRIBUTORS:START -->
+_The leaderboard appears after the first run of the workflow._
+<!-- CONTRIBUTORS:END -->
+
 - Looking for a place to start? Browse the issues labelled [**help wanted**](https://github.com/Delivery-Plus0/delivery-plus/issues?q=label%3A%22help+wanted%22+is%3Aissue+is%3Aopen).
 - Issues that handle personal data or security are labelled `security`: please post a short design in the issue and agree on it before writing code.
 - Report vulnerabilities through [SECURITY.md](https://github.com/Delivery-Plus0/delivery-plus/blob/dev/SECURITY.md), not public issues.
