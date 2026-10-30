@@ -1,0 +1,43 @@
+name: Update contributors
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # every day, 06:00 UTC
+  workflow_dispatch: # run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contributors
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build the leaderboard
+        run: node scripts/contributors.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # To also count the private app repos, add a read-only token as the
+          # STATS_TOKEN secret and uncomment the next two lines.
+          # STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
+          # TARGET_REPOS: Delivery-Plus0/delivery-plus,Delivery-Plus0/delivery-plus-customer-app,Delivery-Plus0/delivery-plus-driver-app,Delivery-Plus0/delivery-plus-restaurant-app
+
+      - name: Commit if the README changed
+        run: |
+          if git diff --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "docs: update contributors leaderboard"
+          git push
