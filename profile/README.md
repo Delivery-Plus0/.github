@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Delivery-Plus0/.github/raw/main/assets/logo.png" alt="Delivery Plus" width="420">
+  <img src="https://github.com/Delivery-Plus0/.github/raw/main/assets/logo_pro.png" alt="Delivery Plus" width="420">
 </p>
 
 <h3 align="center">A cloud-native, event-driven platform for on-demand delivery</h3>
