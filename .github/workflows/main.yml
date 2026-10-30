@@ -1,0 +1,64 @@
+
+name: Update contributors
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contributors
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify README and markers
+        run: |
+          echo "Working directory: $(pwd)"
+          echo "Current branch: $(git branch --show-current)"
+          echo "README path: ./profile/README.md"
+
+          test -f ./profile/README.md || {
+            echo "::error::profile/README.md not found"
+            exit 1
+          }
+
+          grep -n 'CONTRIBUTORS:' ./profile/README.md || {
+            echo "::error::Contributor markers not found in profile/README.md"
+            exit 1
+          }
+
+      - name: Build the leaderboard
+        run: node scripts/contributors.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          README_PATH: ./profile/README.md
+          # Uncomment to include private app repositories.
+          # Requires a token with read access to those repositories.
+          # STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
+          # TARGET_REPOS: Delivery-Plus0/delivery-plus,Delivery-Plus0/delivery-plus-customer-app,Delivery-Plus0/delivery-plus-driver-app,Delivery-Plus0/delivery-plus-restaurant-app
+
+      - name: Commit if the README changed
+        run: |
+          if git diff --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/README.md
+          git commit -m "docs: update contributors leaderboard"
+          git push
