@@ -110,12 +110,12 @@ Work happens on feature branches → pull request → CI → review → merge in
 <!-- CONTRIBUTORS:START -->
 | # | Contributor | Group | Role | Status | Last 30 days | All time | Focus |
 |---|---|---|---|---|---|---|---|
-| 1 | <a href="https://github.com/Yousefa7medmaher"><img src="https://github.com/Yousefa7medmaher.png?size=48" width="24" height="24" alt=""></a> [@Yousefa7medmaher](https://github.com/Yousefa7medmaher) | ⭐ Team | 🛠️ Builder | 🟢 Active | ██████████ 415 | 541 | `docs` `infra` `api-gateway` |
+| 1 | <a href="https://github.com/Yousefa7medmaher"><img src="https://github.com/Yousefa7medmaher.png?size=48" width="24" height="24" alt=""></a> [@Yousefa7medmaher](https://github.com/Yousefa7medmaher) | ⭐ Team | 🛠️ Builder | 🟢 Active | ██████████ 388 | 541 | `docs` `infra` `api-gateway` |
 | 2 | <a href="https://github.com/bernalalexis-try"><img src="https://github.com/bernalalexis-try.png?size=48" width="24" height="24" alt=""></a> [@bernalalexis-try](https://github.com/bernalalexis-try) | 🌍 Community | 🛠️ Builder | 🟡 Recent | ░░░░░░░░░░ 5 | 10 | `docs` `infra` `notification` |
 | 3 | <a href="https://github.com/MohamedAhmed-SUT"><img src="https://github.com/MohamedAhmed-SUT.png?size=48" width="24" height="24" alt=""></a> [@MohamedAhmed-SUT](https://github.com/MohamedAhmed-SUT) | 🌍 Community | 🛠️ Builder | 🟢 Active | ░░░░░░░░░░ 5 | 5 | `docs` `infra` `api-gateway` |
 | 4 | <a href="https://github.com/Bronyxx"><img src="https://github.com/Bronyxx.png?size=48" width="24" height="24" alt=""></a> [@Bronyxx](https://github.com/Bronyxx) | 🌍 Community | 🛠️ Builder | 🟢 Active | ░░░░░░░░░░ 5 | 5 | `docs` `infra` `api-gateway` |
 
-<sub>Updated 2026-10-30. Points: 5 per merged pull request, 2 per review of someone else's pull request, 1 per issue opened. Ranked by the last 30 days, then all time. 🟢 active in the last 14 days · 🟡 in the last 60 · ⚪ earlier. Bots are excluded.</sub>
+<sub>Updated 2026-10-31. Points: 5 per merged pull request, 2 per review of someone else's pull request, 1 per issue opened. Ranked by the last 30 days, then all time. 🟢 active in the last 14 days · 🟡 in the last 60 · ⚪ earlier. Bots are excluded.</sub>
 <!-- CONTRIBUTORS:END -->
 
 - Looking for a place to start? Browse the issues labelled [**help wanted**](https://github.com/Delivery-Plus0/delivery-plus/issues?q=label%3A%22help+wanted%22+is%3Aissue+is%3Aopen).
