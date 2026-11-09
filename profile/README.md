@@ -2,45 +2,42 @@
   <img src="https://github.com/Delivery-Plus0/.github/raw/main/assets/logo_pro.png" alt="Delivery Plus" width="420">
 </p>
 
-<h3 align="center">A cloud-native, event-driven platform for on-demand delivery</h3>
+<h3 align="center">An open-source food delivery platform: customer, driver and restaurant apps on an event-driven backend</h3>
 
 <p align="center">
-  <b>Customer</b> · <b>Driver</b> · <b>Restaurant</b> · <b>Backend</b>
+  <a href="https://github.com/Delivery-Plus0/delivery-plus/blob/dev/LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f" alt="MIT license"></a>
+  <img src="https://img.shields.io/badge/backend-NestJS%20·%20Kafka%20·%20PostgreSQL%20·%20Redis-e0234e" alt="NestJS, Kafka, PostgreSQL, Redis">
+  <img src="https://img.shields.io/badge/apps-React%20Native%20·%20Expo-000020" alt="React Native and Expo">
+  <img src="https://img.shields.io/badge/i18n-العربية%20(RTL)%20·%20English-d21f1f" alt="Arabic (RTL) and English">
+  <a href="https://github.com/Delivery-Plus0/delivery-plus/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22"><img src="https://img.shields.io/badge/good%20first%20issues-welcome-7057ff" alt="Good first issues welcome"></a>
 </p>
 
 ---
 
-**Delivery Plus** connects three roles around one order: a **customer** orders from a **restaurant**, the restaurant prepares it, the platform dispatches a **driver**, and everyone follows the same order and delivery state in real time.
+**Delivery Plus** connects three roles around one order: a **customer** orders from a **restaurant**, the restaurant prepares it, the platform dispatches a **driver**, and everyone follows the same order in real time. Everything is open source (MIT) and built in the open: the roadmap, the milestones and every issue are public.
 
-The backend is open source (MIT) and built in the open: the roadmap, the milestones and every issue are public.
+## The apps
+
+<table>
+<tr>
+<td align="center" valign="top" width="25%"><a href="https://github.com/Delivery-Plus0/delivery-plus-customer-app"><img src="https://github.com/Delivery-Plus0/delivery-plus-customer-app/raw/dev/docs/screens/tour-en.webp" width="190" alt="Customer app screens"></a><br><b><a href="https://github.com/Delivery-Plus0/delivery-plus-customer-app">Customer</a></b><br><sub>restaurants near you · cart · checkout · live tracking</sub></td>
+<td align="center" valign="top" width="25%"><a href="https://github.com/Delivery-Plus0/delivery-plus-driver-app"><img src="https://github.com/Delivery-Plus0/delivery-plus-driver-app/raw/dev/docs/screens/tour-ar.webp" width="190" alt="Driver app screens in Arabic"></a><br><b><a href="https://github.com/Delivery-Plus0/delivery-plus-driver-app">Driver</a></b><br><sub>apply · go online · pickup → drop-off · wallet</sub></td>
+<td align="center" valign="top" width="50%"><a href="https://github.com/Delivery-Plus0/delivery-plus-restaurant-app"><img src="https://github.com/Delivery-Plus0/delivery-plus-restaurant-app/raw/dev/docs/screens/tour-en.webp" width="400" alt="Restaurant dashboard screens"></a><br><b><a href="https://github.com/Delivery-Plus0/delivery-plus-restaurant-app">Restaurant</a></b><br><sub>onboarding · kitchen board · menu and availability</sub></td>
+</tr>
+</table>
+
+<p align="center"><sub>Real screens from each app's web build, in English and Arabic: every app README has a screen-by-screen tour.</sub></p>
 
 ## Repositories
 
-```text
-Delivery Plus
-│
-├── delivery-plus                  Backend platform: 12 NestJS services behind one API Gateway,
-│                                  Kafka events, PostgreSQL, Redis, S3 · issue tracker + roadmap
-│
-├── delivery-plus-customer-app     Customer app (Expo / React Native: Android, iOS, web)
-│                                  browse · cart · checkout · order status · live tracking · alerts
-│
-├── delivery-plus-driver-app       Driver app (Expo / React Native)
-│                                  online/offline · automatic job assignment · pickup → delivered
-│
-├── delivery-plus-restaurant-app   Restaurant app (Expo / React Native, web-first)
-│                                  incoming orders · kitchen workflow · availability
-│
-└── .github                        This organization profile and the project map
-```
-
-| Repository | What it owns | |
-|---|---|---|
-| [**delivery-plus**](https://github.com/Delivery-Plus0/delivery-plus) | Business rules, data, events, auth and the public API: the single source of truth for orders, payments, deliveries and tracking. Also the project-wide issue tracker and milestones. | Public · MIT |
-| **delivery-plus-customer-app** | The customer experience | Private |
-| **delivery-plus-driver-app** | The driver experience | Private |
-| **delivery-plus-restaurant-app** | The restaurant experience | Private |
-| [**.github**](https://github.com/Delivery-Plus0/.github) | Organization profile and project map | Public |
+| Repository | What it is | Stack |
+| --- | --- | --- |
+| [**delivery-plus**](https://github.com/Delivery-Plus0/delivery-plus) | The backend: 12 services behind one API gateway, the single source of truth for orders, payments, deliveries and tracking. Also the project-wide issue tracker and roadmap. | NestJS · TypeScript · Kafka · PostgreSQL · Redis · S3 |
+| [**delivery-plus-customer-app**](https://github.com/Delivery-Plus0/delivery-plus-customer-app) | Customer app: restaurants that deliver to you, cart, checkout, live order tracking on a map | React Native · Expo Router · Android, iOS, web |
+| [**delivery-plus-driver-app**](https://github.com/Delivery-Plus0/delivery-plus-driver-app) | Driver app: application with documents, automatic job assignment, pickup to drop-off, earnings | React Native · Expo Router · Android, web |
+| [**delivery-plus-restaurant-app**](https://github.com/Delivery-Plus0/delivery-plus-restaurant-app) | Restaurant dashboard: onboarding and approval, kitchen order board, menu and availability | Expo Router (web-first) |
+| [**delivery-plus-infra**](https://github.com/Delivery-Plus0/delivery-plus-infra) | Dev environment on AWS: one EC2 host with a static IP, self-hosted Kafka/Postgres/Redis, Jenkins pipelines | Terraform · Ansible · Docker Compose · Jenkins |
+| [**delivery-plus-website**](https://github.com/Delivery-Plus0/delivery-plus-website) | The project website | |
 
 ## How the pieces fit
 
@@ -50,62 +47,58 @@ flowchart LR
     D[Driver app] --> GW
     R[Restaurant app] --> GW
     GW --> S[Backend services]
-    S -.->|events| K[(Kafka)]
+    S -.->|events, outbox| K[(Kafka)]
     S --> PG[(PostgreSQL)]
     S -.-> RD[(Redis)]
-    S -.->|media, documents| S3[(S3)]
+    S -.->|media, private documents| S3[(S3)]
 ```
 
-Every app talks only to the API Gateway, with a JWT whose role decides what it may do; the apps never call each other. A typical order: the customer checks out → the restaurant starts preparing and marks it ready → the backend automatically assigns an online driver → the driver app shows the job and shares its location → the customer app shows the driver and the live map until delivery.
+Every app talks only to the API gateway, with a JWT whose role decides what it may do. A typical order: the customer checks out → the restaurant prepares it and marks it ready → the backend assigns an available driver automatically → the driver app shows the job and shares its location → the customer follows the driver on a live map until delivery.
 
-## Status
+## What works today
 
-The platform works end to end on a simulated payment provider. The current effort is turning it into something that can run a real pilot: accounts that are safe to operate, onboarding with human approval, an admin console, a staging environment, real money and real messaging.
+- **Accounts:** customer, driver, restaurant owner, staff; refresh sessions, sign-out everywhere, suspension, email verification, phone OTP, password recovery.
+- **Onboarding with human approval:** driver applications with private documents and licence expiry, and restaurant applications. Only approved restaurants are listed.
+- **Service area:** customers see only the restaurants that deliver to their location, nearest first.
+- **Orders end to end:** menus with availability, cart, idempotent checkout, kitchen board, automatic dispatch, delivery steps, cancellations and refunds.
+- **Live tracking:** server-sent events with a polling fallback; contact between customer, driver and restaurant during an active delivery.
+- **Events:** transactional outbox, idempotent Kafka consumers, retries and dead-letter topics.
+- **Arabic (RTL) and English** in all three apps; Maestro end-to-end tests against the real backend in CI.
+- **Payments are simulated** for now: a real provider comes with Production 6.
 
-**Implemented**
+## Roadmap
 
-- Accounts and roles (customer, driver, restaurant owner, admin, staff) with JWT access tokens and rotating refresh sessions; logout from one or all devices; account suspension; per-staff permissions; email verification and phone OTP; password change and recovery by SMS code (closing out the first production milestone)
-- Restaurants, menus with availability, Redis cart, and the order lifecycle with idempotent creation
-- **Simulated** payments (no real card provider yet)
-- Automatic driver dispatch, driver verification gate, and the delivery lifecycle (assigned → picked up → in transit → delivered)
-- Live tracking with server-sent events and a polling fallback, plus a customer-safe driver card
-- In-app notifications for each order stage
-- Order and delivery events through a transactional outbox, Kafka consumers with deduplication, retries and dead-letter topics
-- Direct-to-S3 media uploads with presigned POST
-- The three apps' core flows, including history, ratings, menu management, profiles, Egypt locale and Arabic/RTL
+The work runs in public milestones; the [milestones page](https://github.com/Delivery-Plus0/delivery-plus/milestones) is the source of truth.
 
-**Roadmap: from prototype to production**
-
-The work is organised in public milestones. Target dates will move as we learn; the [milestones page](https://github.com/Delivery-Plus0/delivery-plus/milestones) is the source of truth.
-
-| Milestone | Focus | Target |
-|---|---|---|
-| **Production 0 · Hotfix** | Close the critical gaps found in review: payment simulator guard, error handling, driver verification | Done |
-| **Production 1 · Accounts & sessions** | Refresh sessions, suspension, staff identities, a separate system principal, password recovery | Nov 2026 |
-| **Production 2 · Onboarding & service area** | Driver applications with private documents, restaurant applications and approval, delivery radius, fairer dispatch | Nov 2026 |
-| **Production 3 · Admin console I** | Admin API foundation, audit trail, approvals, staff accounts | Nov 2026 |
-| **Production 4 · Admin console II** | Order timeline, live operations, support actions, finance views | Dec 2026 |
-| **Production 5 · Platform hardening & staging** | Staging environment, deploy and rollback, timeouts, graceful shutdown, health checks, metrics, backups | Dec 2026 |
-| **Production 6 · Real money** | Real payment provider, webhooks and refunds, earnings ledger, driver payouts | Jan 2027 |
-| **Production 7 · Messaging & mobile** | Real SMS provider, push notifications, nearest-driver dispatch, notification templates | Jan 2027 |
-| **Production 8 · Launch readiness** | Load test, runbooks, account deletion and data export, production bootstrap, pilot go/no-go | Feb 2027 |
-| **Production 9 · After launch** | Operating hours, event contract registry, shared package hardening | Mar 2027 |
-
-Password recovery by SMS works in the code but stays unavailable in production until a real SMS provider is connected (Production 7).
-
-See the [backend README](https://github.com/Delivery-Plus0/delivery-plus#readme) for the architecture and per-service detail.
+| Milestone | Focus | Status |
+| --- | --- | --- |
+| Production 0 · Hotfix | Payment simulator guard, error handling, driver verification | ✅ Done |
+| Production 1 · Accounts & sessions | Refresh sessions, suspension, staff, system principal, password recovery | ✅ Done |
+| Production 2 · Onboarding & service area | Driver and restaurant applications with approval, delivery radius, contact during delivery | ✅ Done |
+| Production 3 · Admin console I | Admin API, audit trail, approval queues, staff accounts | Next |
+| Production 4 · Admin console II | Order timeline, live operations, support actions, finance views | |
+| Production 5 · Hardening & staging | Staging, deploy and rollback, timeouts, graceful shutdown, metrics, backups | |
+| Production 6 · Real money | Payment provider, webhooks and refunds, earnings, payouts | |
+| Production 7 · Messaging & mobile | SMS, push notifications, nearest-driver dispatch, store builds | |
+| Production 8 · Launch readiness | Load test, runbooks, account deletion, legal pages, pilot go/no-go | |
 
 ## Engineering principles
 
 - **One source of truth.** The backend owns every business rule; the apps are clients like any other.
-- **Events over coupling.** State changes are published as events, written in the same transaction as the change (outbox), and consumed idempotently.
-- **Security by default.** Services call each other with HMAC-signed internal requests; service accounts never carry admin rights; personal documents live in private storage behind short-lived links; secrets have no defaults in production.
-- **Checked before merge.** Every pull request runs lint, tests, builds, migration verification on a fresh database, CodeQL, dependency audit, and container and filesystem scans.
+- **Events over coupling.** State changes are published as events in the same transaction as the change (outbox), and consumed idempotently.
+- **Security by default.** HMAC-signed internal calls, no admin rights for service accounts, private documents behind short-lived links, no secret defaults in production.
+- **Checked before merge.** Lint, unit and integration tests, migration checks on a fresh database, end-to-end UI tests, CodeQL, dependency audit and container scans on every pull request.
 - **Honest status.** What is simulated or missing is written down, not hidden.
 
 ## Contributing
 
-Work happens on feature branches → pull request → CI → review → merge into `dev`. Start with the backend's [CONTRIBUTING.md](https://github.com/Delivery-Plus0/delivery-plus/blob/dev/CONTRIBUTING.md).
+We'd love your help, whether it's code, tests, docs, translations or design.
+
+1. Pick an issue: [**good first issues**](https://github.com/Delivery-Plus0/delivery-plus/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) across the project, or [**help wanted**](https://github.com/Delivery-Plus0/delivery-plus/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22).
+2. Read [CONTRIBUTING.md](https://github.com/Delivery-Plus0/delivery-plus/blob/dev/CONTRIBUTING.md): branch from `dev` → pull request → CI → review → merge.
+3. Run it locally: the backend starts with Docker Compose, and each app runs on the web with `npm run web`.
+
+Questions are welcome in [Discussions](https://github.com/Delivery-Plus0/delivery-plus/discussions). Report vulnerabilities through [SECURITY.md](https://github.com/Delivery-Plus0/.github/blob/main/SECURITY.md), not public issues.
 
 <!-- CONTRIBUTORS:START -->
 | # | Contributor | Group | Role | Status | Last 30 days | All time | Focus |
@@ -118,7 +111,3 @@ Work happens on feature branches → pull request → CI → review → merge in
 
 <sub>Updated 2026-11-08. Points: 5 per merged pull request, 2 per review of someone else's pull request, 1 per issue opened. Ranked by the last 30 days, then all time. 🟢 active in the last 14 days · 🟡 in the last 60 · ⚪ earlier. Bots are excluded.</sub>
 <!-- CONTRIBUTORS:END -->
-
-- Looking for a place to start? Browse the issues labelled [**help wanted**](https://github.com/Delivery-Plus0/delivery-plus/issues?q=label%3A%22help+wanted%22+is%3Aissue+is%3Aopen).
-- Issues that handle personal data or security are labelled `security`: please post a short design in the issue and agree on it before writing code.
-- Report vulnerabilities through [SECURITY.md](https://github.com/Delivery-Plus0/delivery-plus/blob/dev/SECURITY.md), not public issues.

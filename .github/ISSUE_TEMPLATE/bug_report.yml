@@ -1,0 +1,44 @@
+name: Bug report
+description: Something doesn't work as it should
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting! Please don't include passwords, tokens or real personal data.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Sign in as a customer
+        2. Open …
+        3. See …
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      multiple: true
+      options: [Backend / API, Customer app, Driver app, Restaurant app, Infrastructure / CI]
+  - type: dropdown
+    id: language
+    attributes:
+      label: App language
+      options: [English, Arabic (RTL), Both / not relevant]
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Platform (Android, iOS, web and browser), version or commit, and anything else that matters.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots or logs

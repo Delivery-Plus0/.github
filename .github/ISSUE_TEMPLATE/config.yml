@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/Delivery-Plus0/delivery-plus/discussions
+    about: Ask in Discussions rather than opening an issue.
+  - name: Report a security vulnerability
+    url: https://github.com/Delivery-Plus0/.github/blob/main/SECURITY.md
+    about: Privately, never in a public issue.
