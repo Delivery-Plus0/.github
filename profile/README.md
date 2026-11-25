@@ -110,5 +110,5 @@ Questions are welcome in [Discussions](https://github.com/Delivery-Plus0/deliver
 | 5 | <a href="https://github.com/bernalalexis-try"><img src="https://github.com/bernalalexis-try.png?size=48" width="24" height="24" alt=""></a> [@bernalalexis-try](https://github.com/bernalalexis-try) | 🌍 Community | 🛠️ Builder | 🟡 Recent | ░░░░░░░░░░ 0 | 10 | `docs` `infra` `notification` |
 | 6 | <a href="https://github.com/Bronyxx"><img src="https://github.com/Bronyxx.png?size=48" width="24" height="24" alt=""></a> [@Bronyxx](https://github.com/Bronyxx) | 🌍 Community | 🛠️ Builder | 🟡 Recent | ░░░░░░░░░░ 0 | 5 | `docs` `infra` `api-gateway` |
 
-<sub>Updated 2026-11-24. Points: 5 per merged pull request, 2 per review of someone else's pull request, 1 per issue opened. Ranked by the last 30 days, then all time. 🟢 active in the last 14 days · 🟡 in the last 60 · ⚪ earlier. Bots are excluded.</sub>
+<sub>Updated 2026-11-25. Points: 5 per merged pull request, 2 per review of someone else's pull request, 1 per issue opened. Ranked by the last 30 days, then all time. 🟢 active in the last 14 days · 🟡 in the last 60 · ⚪ earlier. Bots are excluded.</sub>
 <!-- CONTRIBUTORS:END -->
